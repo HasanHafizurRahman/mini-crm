@@ -17,6 +17,12 @@ const QuotesTable = ({ data }) => {
 
   const columnDefs = useMemo(
     () => [
+      {
+        headerCheckboxSelection: true,
+        checkboxSelection: true,
+        headerCheckboxSelectionFilteredOnly: true,
+        width: 50,
+      },
       { headerName: "Subject", field: "subject", filter: true, sortable: true },
       { headerName: "Quote Stage", field: "quoteStage", filter: true, sortable: true },
       { headerName: "Grand Total", field: "grandTotal", filter: true, sortable: true },
@@ -111,6 +117,7 @@ const QuotesTable = ({ data }) => {
             rowData={filteredData}
             columnDefs={columnDefs}
             defaultColDef={defaultColDef}
+            rowSelection="multiple"
             pagination={true}
             paginationPageSize={10}
           />

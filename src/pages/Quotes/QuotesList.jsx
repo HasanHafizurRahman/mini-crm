@@ -28,16 +28,28 @@ const QuotesList = () => {
     };
   }, []);
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <div className="p-4">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-xl font-bold">Quotes Overview</h1>
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-          onClick={() => navigate("/create")}
-        >
-          Create Quote
-        </button>
+        <div className="space-x-2">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded"
+            onClick={() => navigate("/create")}
+          >
+            Create Quote
+          </button>
+          <button
+            className="bg-green-500 text-white px-4 py-2 rounded"
+            onClick={handlePrint}
+          >
+            Print
+          </button>
+        </div>
       </div>
 
       {/* Render the QuotesTable component */}
